@@ -80,7 +80,7 @@ p  { font-size: 1.05rem; }
 }
 .nav-wrap {
   display: flex; align-items: center; justify-content: space-between;
-  height: 120px;
+  padding: 15px 0;
 }
 .nav-logo img { height: 90px; }
 .nav-links { display: flex; align-items: center; gap: 2rem; }
@@ -108,7 +108,7 @@ p  { font-size: 1.05rem; }
 .nav-logo img { object-fit: contain; width: auto; }
 
 @media (max-width: 768px) {
-  .nav-wrap { height: 70px; }
+  .nav-wrap { padding: 10px 0; }
   .nav-logo img { height: 50px; }
   .nav-toggle { display: flex; }
   .nav-links {
