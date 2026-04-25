@@ -78,6 +78,7 @@ p  { font-size: 1.05rem; }
   backdrop-filter: blur(8px);
   border-bottom: 3px solid var(--red);
   overflow: visible;
+  padding-top: env(safe-area-inset-top, 0px);
 }
 .nav-wrap {
   display: flex; align-items: center; justify-content: space-between;
