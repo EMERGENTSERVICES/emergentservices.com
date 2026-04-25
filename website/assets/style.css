@@ -110,18 +110,21 @@ p  { font-size: 1.05rem; }
 .nav-logo img { object-fit: contain; width: auto; }
 
 @media (max-width: 768px) {
-  .nav-wrap { padding: 12px 0; }
-  .nav-logo img { height: 50px; }
+  .site-header { padding-top: max(12px, env(safe-area-inset-top, 12px)); }
+  .nav-wrap { padding: 10px 0; }
+  .nav-logo { display: flex; align-items: center; }
+  .nav-logo img { height: 46px; max-height: 46px; }
   .nav-toggle { display: flex; }
   .nav-links {
-    position: fixed; top: 74px; left: 0; width: 100%; background: var(--dark);
-    flex-direction: column; padding: 2rem 0; gap: 1.4rem;
+    position: fixed; top: 0; left: 0; width: 100%; background: var(--dark);
+    flex-direction: column; padding: 5.5rem 0 2rem; gap: 1.4rem;
     transform: translateY(-120%); transition: transform .35s ease;
+    z-index: -1;
   }
   .nav-links.open { transform: translateY(0); }
-  .emergency-banner { margin-top: 74px !important; }
-  .hero { padding-top: 74px; }
-  .page-header { padding: 5.5rem 0 2.5rem; }
+  .emergency-banner { margin-top: 80px !important; }
+  .hero { padding-top: 80px; }
+  .page-header { padding: 6rem 0 2.5rem; }
 }
 
 /* ---------- Hero ---------- */
