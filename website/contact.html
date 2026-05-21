@@ -107,9 +107,10 @@
       <!-- Contact Form -->
       <div class="form-card">
         <h3>Request a Quote or Callback</h3>
-        <form id="contactForm" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="contact">
-          <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="ad7a295b-366d-4b38-8801-c44480e981b2">
+          <input type="hidden" name="subject" value="New Contact Form Submission - EmergentServices">
+          <input type="checkbox" name="botcheck" style="display: none;">
           <div class="form-row">
             <div class="form-group">
               <label for="firstName">First Name</label>
@@ -204,13 +205,18 @@
       const btn = form.querySelector('[type="submit"]');
       btn.disabled = true;
       btn.textContent = 'Sending…';
-      fetch('/', {
+      fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(new FormData(form)).toString()
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(form)))
       })
-      .then(() => {
-        form.innerHTML = '<div style="text-align:center;padding:2rem 1rem"><svg style="width:48px;height:48px;color:var(--red);margin-bottom:1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><h3 style="margin-bottom:.75rem">Request Received!</h3><p style="color:var(--text-muted)">We\'ll get back to you within one business day. For emergencies, call us directly at <a href="tel:+15018310854" style="color:var(--red)">(501) 831-0854</a>.</p></div>';
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          form.innerHTML = '<div style="text-align:center;padding:2rem 1rem"><svg style="width:48px;height:48px;color:var(--red);margin-bottom:1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><h3 style="margin-bottom:.75rem">Request Received!</h3><p style="color:var(--text-muted)">We\'ll get back to you within one business day. For emergencies, call us directly at <a href="tel:+15018310854" style="color:var(--red)">(501) 831-0854</a>.</p></div>';
+        } else {
+          throw new Error(data.message || 'Submission failed');
+        }
       })
       .catch(() => {
         btn.disabled = false;
