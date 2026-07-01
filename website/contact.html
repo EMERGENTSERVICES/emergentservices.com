@@ -12,6 +12,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
+  <!-- Jobber work request form styles -->
+  <link rel="stylesheet" href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css" media="screen" />
 </head>
 <body>
 
@@ -104,55 +106,11 @@
         </div>
       </div>
 
-      <!-- Contact Form -->
+      <!-- Contact Form (Jobber work request) -->
       <div class="form-card">
         <h3>Request a Quote or Callback</h3>
-        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="ad7a295b-366d-4b38-8801-c44480e981b2">
-          <input type="hidden" name="subject" value="New Contact Form Submission - EmergentServices">
-          <input type="checkbox" name="botcheck" style="display: none;">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="firstName">First Name</label>
-              <input type="text" id="firstName" name="firstName" placeholder="John" required>
-            </div>
-            <div class="form-group">
-              <label for="lastName">Last Name</label>
-              <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="john@example.com" required>
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="service">Service Needed</label>
-            <select id="service" name="service">
-              <option value="">Select a service...</option>
-              <option value="emergency">Emergency Service</option>
-              <option value="repair">Electrical Repair</option>
-              <option value="installation">New Installation</option>
-              <option value="panel">Panel Upgrade</option>
-              <option value="ev">EV Charger</option>
-              <option value="generator">Generator</option>
-              <option value="inspection">Inspection</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="message">Tell Us About Your Project</label>
-            <textarea id="message" name="message" placeholder="Describe your project or issue..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
-            Send Request
-          </button>
-        </form>
+        <div id="f7ef6243-78b9-4f19-8c3b-840201169703-2365413"></div>
+        <script src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js" clienthub_id="f7ef6243-78b9-4f19-8c3b-840201169703-2365413" form_url="https://clienthub.getjobber.com/client_hubs/f7ef6243-78b9-4f19-8c3b-840201169703/public/work_request/embedded_work_request_form?form_id=2365413"></script>
       </div>
 
     </div>
@@ -198,32 +156,6 @@
     const toggle = document.getElementById('navToggle');
     const links  = document.getElementById('navLinks');
     toggle.addEventListener('click', () => links.classList.toggle('open'));
-
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const form = this;
-      const btn = form.querySelector('[type="submit"]');
-      btn.disabled = true;
-      btn.textContent = 'Sending…';
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(Object.fromEntries(new FormData(form)))
-      })
-      .then(res => res.json())
-      .then(data => {
-        if (data.success) {
-          form.innerHTML = '<div style="text-align:center;padding:2rem 1rem"><svg style="width:48px;height:48px;color:var(--red);margin-bottom:1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><h3 style="margin-bottom:.75rem">Request Received!</h3><p style="color:var(--text-muted)">We\'ll get back to you within one business day. For emergencies, call us directly at <a href="tel:+15018310854" style="color:var(--red)">(501) 831-0854</a>.</p></div>';
-        } else {
-          throw new Error(data.message || 'Submission failed');
-        }
-      })
-      .catch(() => {
-        btn.disabled = false;
-        btn.textContent = 'Send Request';
-        alert('Something went wrong. Please call (501) 831-0854 or email tyler@emergentservices.com.');
-      });
-    });
   </script>
 </body>
 </html>
