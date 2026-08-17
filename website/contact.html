@@ -104,52 +104,17 @@
         </div>
       </div>
 
-      <!-- Contact Form -->
+      <!-- Contact Form (Jobber work request form) -->
       <div class="form-card">
         <h3>Request a Quote or Callback</h3>
-        <form id="contactForm">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="firstName">First Name</label>
-              <input type="text" id="firstName" name="firstName" placeholder="John" required>
-            </div>
-            <div class="form-group">
-              <label for="lastName">Last Name</label>
-              <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="john@example.com" required>
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="service">Service Needed</label>
-            <select id="service" name="service">
-              <option value="">Select a service...</option>
-              <option value="emergency">Emergency Service</option>
-              <option value="repair">Electrical Repair</option>
-              <option value="installation">New Installation</option>
-              <option value="panel">Panel Upgrade</option>
-              <option value="ev">EV Charger</option>
-              <option value="generator">Generator</option>
-              <option value="inspection">Inspection</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="message">Tell Us About Your Project</label>
-            <textarea id="message" name="message" placeholder="Describe your project or issue..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
-            Send Request
-          </button>
-        </form>
+        <p style="font-size:.9rem;opacity:.8;margin-bottom:1rem;">Fill out the form below and your request goes straight into our scheduling system — we'll follow up fast.</p>
+        <!-- Jobber embedded request form: submissions appear in Jobber as new work requests -->
+        <div id="f7ef6243-78b9-4f19-8c3b-840201169703-2365413"></div>
+        <link rel="stylesheet" href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css" media="screen" />
+        <script src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js" clienthub_id="f7ef6243-78b9-4f19-8c3b-840201169703-2365413" form_url="https://clienthub.getjobber.com/client_hubs/f7ef6243-78b9-4f19-8c3b-840201169703/public/work_request/embedded_work_request_form?form_id=2365413"></script>
+        <noscript>
+          <p>Our request form needs JavaScript. You can also <a href="https://clienthub.getjobber.com/hubs/f7ef6243-78b9-4f19-8c3b-840201169703/public/requests/2365413/new" style="color:var(--red);">open the request form here</a> or call us at <a href="tel:+15018310854" style="color:var(--red);">(501) 831-0854</a>.</p>
+        </noscript>
       </div>
 
     </div>
@@ -195,13 +160,6 @@
     const toggle = document.getElementById('navToggle');
     const links  = document.getElementById('navLinks');
     toggle.addEventListener('click', () => links.classList.toggle('open'));
-
-    // Simple form handler (placeholder)
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Thank you! Your request has been submitted. We will get back to you shortly.');
-      this.reset();
-    });
   </script>
 </body>
 </html>
