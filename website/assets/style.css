@@ -107,14 +107,13 @@ p  { font-size: 1.05rem; }
 .nav-toggle span { display: block; width: 26px; height: 3px; background: var(--white); border-radius: 2px; transition: .3s; }
 
 /* Logo aspect ratio protection */
-.nav-logo { overflow: visible; flex-shrink: 0; }
 .nav-logo img { object-fit: contain; width: auto; }
 
 @media (max-width: 768px) {
-  .site-header { padding-top: max(8px, env(safe-area-inset-top, 8px)); }
-  .nav-wrap { padding: 8px 0; }
-  .nav-logo { display: flex; align-items: center; overflow: visible; }
-  .nav-logo img { height: 50px; max-height: 50px; }
+  .site-header { padding-top: max(12px, env(safe-area-inset-top, 12px)); }
+  .nav-wrap { padding: 10px 0; }
+  .nav-logo { display: flex; align-items: center; }
+  .nav-logo img { height: 46px; max-height: 46px; }
   .nav-toggle { display: flex; }
   .nav-links {
     position: fixed; top: 0; left: 0; width: 100%; background: var(--dark);
@@ -124,7 +123,7 @@ p  { font-size: 1.05rem; }
   }
   .nav-links.open { transform: translateY(0); }
   .emergency-banner { display: none !important; }
-  .hero { padding-top: 80px; margin-top: 80px; }
+  .hero { padding-top: 0 !important; margin-top: 80px; }
   .page-header { padding: 6rem 0 2.5rem; }
 }
 
@@ -202,7 +201,7 @@ p  { font-size: 1.05rem; }
   border-radius: 8px;
   padding: 2.4rem 2rem;
   box-shadow: 0 2px 20px rgba(0,0,0,.06);
-  transition: transform .25s, box-shadow .25s;
+  transition: transform .25s, box-shadow .25s;h
   border-top: 4px solid transparent;
 }
 .service-card:hover {
